@@ -1,11 +1,19 @@
-<h1>Cocktails</h1>
-<br>
-
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);">
+  <div class="container">
+    <h1>Cool cocktail database!</h1>
+    <br>
+    <a class="btn btn-flat" href="#"><td><%= link_to 'Create a cocktail', new_cocktail_path %></td></a>
+  </div>
+</div>
 
 <% @cocktails.each do |cocktail| %>
-      <h4><%= link_to cocktail.name, cocktail_path(cocktail) %></h4>
-      <br>
-    <% end %>
+  <h4><%= link_to cocktail.name, cocktail_path(cocktail) %>
+    <%= link_to cocktail_path(cocktail), method: :delete, data: { confirm: "Are you sure?" } do %>
+    <i class="fas fa-trash"></i>
+    </h4>
+  <% end %>
+<% end %>
+
 
 <table>
   <thead>
@@ -16,7 +24,7 @@
 
   <tbody>
       <tr>
-        <td><%= link_to 'Create', new_cocktail_path %></td>
+
       </tr>
   </tbody>
 </table>
